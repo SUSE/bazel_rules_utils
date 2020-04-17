@@ -78,7 +78,7 @@ _external_binary = repository_rule(
         ),
         "strip_prefix": attr.string_dict(
             allow_empty = True,
-            doc = "Directory prefixex to strip from the extracted files",
+            doc = "Directory prefixes to strip from the extracted files",
         ),
     },
 )
