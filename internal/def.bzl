@@ -1,8 +1,8 @@
 """
-This module contains the implementation to pull in external binaries.
+This module contains the implementations to deal with binary dependencies.
 """
 
-def _external_binary_impl(ctx):
+def _binary_impl(ctx):
     os = ctx.os.name
     if os == "mac os x":
         os = "darwin"
@@ -61,8 +61,8 @@ def _external_binary_impl(ctx):
     build_contents = '\n'.join([x.lstrip(' ') for x in build_contents.splitlines()])
     ctx.file("BUILD.bazel", build_contents)
 
-_external_binary = repository_rule(
-    implementation = _external_binary_impl,
+_binary = repository_rule(
+    implementation = _binary_impl,
     attrs = {
         "sha256": attr.string_dict(
             allow_empty = False,
@@ -83,8 +83,8 @@ _external_binary = repository_rule(
     },
 )
 
-def external_binary(name, config):
-    _external_binary(
+def binary(name, config):
+    _binary(
         name = name,
         **config
     )
