@@ -1,1 +1,1 @@
-workspace(name = "external_binaries")
+workspace(name = "suse_rules_binaries")
